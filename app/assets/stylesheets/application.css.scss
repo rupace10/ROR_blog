@@ -17,7 +17,7 @@
 @import 'normalize';
 
 html, body {
-	font-family: 'Raleway', sans-serif;
+	font-family: 'sans-serif', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -29,7 +29,10 @@ a {
 	color: inherit;
 }
 
-#sidebar {
+#sidebar-color{
+	background: solid #33acb7
+}
+/*#sidebar {
 	width: 250px;
 	position: fixed;
 	left: 0;
@@ -78,14 +81,20 @@ a {
 		font-size: .8em;
 		color: #9eafba;
 	}
+}*/
+#logo {
+	width: 40px;
+	position: absolute;
+	right: 3em;
+	top: 3em;
 }
-
 .button {
 	outline: none;
 	background: transparent;
 	border: 1px solid #d6dce0;
 	padding: .5em 1.5em;
 	border-radius: 1.5em;
+
 	&:hover {
 		border: 1px solid #33acb7;
 		color: #33acb7;
@@ -119,9 +128,9 @@ a {
 		}
 		.buttons {
 			float: right;
-			margin-top: -6px;
+			margin-top: -4px;
 			.button {
-				font-size: .8em;
+				font-size: 1.2em;
 				margin-left: .5em;
 			}
 		}
