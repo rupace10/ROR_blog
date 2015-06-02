@@ -28,15 +28,16 @@
 		</ul>
 
 		<% if !user_signed_in? %>
-			<p class="sign_in"><%= link_to "Admin Login", new_user_session_path %></p>
+			<p class="sign_in"><%= link_to "Login", new_user_session_path %></p>
 		<% end %>
 
 	</div>
 
 	<div id="main_content">
 		<div id="header">
+
 		<% if current_page?(root_path)%>
-			<p>All Posts</p>
+			<p>All Posts</p> |
 		<% elsif current_page?(about_path)%>
 			<p>About</p>
 		<% else %>
@@ -44,9 +45,13 @@
 		<% end %>
 
 		<% if user_signed_in? %>
+		Logged in as <%= current_user.email %>.
 			<div class="buttons">
-				<button class="button"><%= link_to 'New Post', new_article_path %></button>
-				<button class="button">Log Out</button>
+				<% if can? :update, @user %>
+					| <%= link_to "Admin", admin_root_path %>
+				<% end %>
+				<%= link_to 'New Post', new_article_path, class: "button" %>
+				<%= link_to "Log Out", destroy_user_session_path, :method => :delete, class: "button" %>
 			</div>
 		<% end %>
 		</div>
@@ -55,6 +60,9 @@
 		<% end %>
 	<%= yield %>
 </div>
-
+	<%= javascript_include_tag :defaults %>
+	<p><%= notice %></p>
+<p><%= alert %></p>
 </body>
+
 </html>

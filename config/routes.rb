@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  ActiveAdmin.routes(self)
+
   devise_for :users
   get '/about', to: 'pages#about' #this makes the file path '/about' instead of 'pages/about'
 
