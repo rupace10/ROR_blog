@@ -1,5 +1,5 @@
 <div class="container">
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-1") do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "form-1") do |f| %>
     <p class="field">
       <%= f.email_field :email, autofocus: true, placeholder: "Username or email" %>
       <i class="icon-user icon-large"></i>
@@ -16,23 +16,9 @@
       </p>
     <% end -%>
     <p class="submit">
-      <button type="submit" name="submit"><i class="icon-arrow-right icon-large"><%= f.submit %></i></button>
+      <button type="submit" name="submit"><i class="icon-arrow-right icon-large"><%= f.submit "Log in" %></i></button>
     </p>
   <% end %>
   </br>
   <%= render "devise/shared/links" %>
 </div>
-
-<form class="form-1">
-  <p class="field">
-    <input type="text" name="login" placeholder="Username or email">
-    <i class="icon-user icon-large"></i>
-  </p>
-  <p class="field">
-    <input type="password" name="password" placeholder="Password">
-    <i class="icon-lock icon-large"></i>
-  </p>
-  <p class="submit">
-    <button type="submit" name="submit"><i class="icon-arrow-right icon-large"></i></button>
-  </p>
-</form>

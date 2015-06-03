@@ -42,7 +42,9 @@
 
 		<div class="buttons">
 		<% if !user_signed_in? %>
+			<% if current_page?(root_path)%>
 			<%= link_to "Login", new_user_session_path, class: "button" %>
+			<% end %>
 			<%= link_to "Sign up", new_user_registration_path, class: "button" %>
 		<% end %>
 		</div>
