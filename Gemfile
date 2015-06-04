@@ -26,7 +26,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'devise', '~> 3.5.0'
 gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'activeadmin', github: 'gregbell/active_admin'
-gem 'cancan'
+
 gem 'font-awesome-sass', '~> 4.3.0'
 
 # Use ActiveModel has_secure_password
@@ -43,3 +43,4 @@ gem 'font-awesome-sass', '~> 4.3.0'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
+gem 'cancan', '~> 1.6.10'
