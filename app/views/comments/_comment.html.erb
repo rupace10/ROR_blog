@@ -6,10 +6,8 @@
 	</div>
 
 	<p>
-		<% if can? :update, comment%>
-	 		<%= link_to 'Edit', edit_comment_path(comment) %>
-	 	<% end %>
-	 	<% if can? :destroy, comment%>
+		<% if user_signed_in? %>
+	 		<%#= link_to 'Edit', edit_comment_path(comment) -%>
 			<%= link_to 'Delete Comment', [comment.article, comment],
 		               method: :delete,
 		               class: "button",
