@@ -28,7 +28,7 @@ gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'font-awesome-sass', '~> 4.3.0'
-
+gem 'rename'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

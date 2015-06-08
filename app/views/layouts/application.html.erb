@@ -9,14 +9,15 @@
 
 </head>
 <body>
-	<div id="sidebar-wrapper">
-		<div class="display-block" id="logo">
-			<%= link_to root_path do%>
-				<%= image_tag "logo.svg" %>
-			<% end %>
-		</div>
+
+<div id="header">
+	<div id="cpBtn" onclick="toggleCP()">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<div id="cp">
 		<ul class="sidebar-nav">
-			<li class="sidebar-brand">Website</li>
 			<li><%= link_to "Blog", root_path %></li>
 			<li><%= link_to "New Post", new_article_path %></li>
 			<li><%= link_to "About", about_path %></li>
@@ -26,48 +27,59 @@
 			<li><a href="https://github.com/rupace10" target="_blank">Github</a></li>
 		</ul>
 	</div>
-
-	<div id="main_content">
-		<div id="header">
-
+	<div class="buttons">
+	<% if !user_signed_in? %>
 		<% if current_page?(root_path)%>
-			<p>All Posts</p> |
-		<% elsif current_page?(about_path)%>
-			<p>About</p>
-		<% else %>
-		<%= link_to "Back to All Posts", root_path, class: "icon-arrow-left" %>
+		<%= link_to "Login", new_user_session_path, class: "button" %>
 		<% end %>
+		<%#= link_to "Sign up", new_user_registration_path, class: "button" -%>
+	<% end %>
+	</div>
 
+	<% if current_page?(root_path)%>
+		<p class="ap-text">All Posts</p>
+	<% elsif current_page?(about_path)%>
+		<p>About</p>
+	<% else %>
+	<%= link_to "Back to All Posts", root_path, class: "icon-arrow-left" %>
+	<% end %>
+
+
+
+			<%-# if can? :update, @user -%>
+				 <%#= link_to "Admin", admin_root_path -%>
+			<%-# end -%>
+
+	<% if user_signed_in? %>
+	Logged in as <%= current_user.email %>.
 		<div class="buttons">
-		<% if !user_signed_in? %>
-			<% if current_page?(root_path)%>
-			<%= link_to "Login", new_user_session_path, class: "button" %>
-			<% end %>
-			<%#= link_to "Sign up", new_user_registration_path, class: "button" -%>
-		<% end %>
+			<%= link_to "Log Out", destroy_user_session_path, :method => :delete, class: "button" %>
+			&nbsp;
+			<%= link_to 'New Post', new_article_path, class: "button" %>
 		</div>
-
-				<%-# if can? :update, @user -%>
-					 <%#= link_to "Admin", admin_root_path -%>
-				<%-# end -%>
-
-		<% if user_signed_in? %>
-		Logged in as <%= current_user.email %>.
-			<div class="buttons">
-
-				<%= link_to 'New Post', new_article_path, class: "button" %>
-				<%= link_to "Log Out", destroy_user_session_path, :method => :delete, class: "button" %>
-			</div>
-		<% end %>
-		</div>
-		<% flash.each do|name, msg| %>
-		<%= content_tag(:div, msg, class: "alert") %>
-		<% end %>
-	<%= yield %>
+	<% end %>
+</div>
+<div id="content" class="container">
+	<% flash.each do|name, msg| %>
+	<%= content_tag(:div, msg, class: "alert") %>
+	<% end %>
+<%= yield %>
 </div>
 	<%= javascript_include_tag :defaults %>
 	<p><%= notice %></p>
 <p><%= alert %></p>
+<script>
+function toggleCP(){
+	var cp = document.getElementById("cp");
+	cp.style.height = window.innerHeight - 60+"px";
+	if(cp.style.right == "0px"){
+		cp.style.right = "-260px";
+	}
+	else {
+		cp.style.right = "0px";
+	}
+}
+</script>
 </body>
 
 </html>
