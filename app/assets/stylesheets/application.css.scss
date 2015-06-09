@@ -88,11 +88,20 @@ a {
 		height: 0px;
 		background: #5eb8be;
 		transition: right 0.3s linear 0s;
-		.siderbar-nav{
-			ul{
-				li a{
-					color: #333;
-				}
+		.sidebar-nav{
+			color: #636363;
+			padding: 10px;
+			li{
+				font-color: #636363;
+				font-size: 1.2em;
+				list-style-type: none;
+				margin: 10px;
+			}
+			.line{
+				border: solid;
+			}
+			.sidebar-head{
+				font-size: 1.28em;
 			}
 		}
 	}
@@ -100,7 +109,7 @@ a {
 		display: inline;
 	}
 	a {
-		color: #9eafba;
+		color: #636363;
 		text-decoration: none;
 	}
 	.log-in-as{

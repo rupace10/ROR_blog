@@ -22,7 +22,9 @@
 			<li><%= link_to "New Post", new_article_path %></li>
 			<li><%= link_to "About", about_path %></li>
 			<li><%= link_to "Contact", contact_path %></li>
-			<li class="sidebar-brand">Connect to me with</li>
+			<div class="line"></div>
+			<li class="sidebar-head">Connect to me with</li>
+			</br>
 			<li><a href="https://twitter.com/rupace10" target="_blank">Twitter</a></li>
 			<li><a href= '#' >Instagram</a></li>
 			<li><a href="https://github.com/rupace10" target="_blank">Github</a></li>
@@ -44,8 +46,6 @@
 	<% else %>
 		<p><%= icon('arrow-left') %> &nbsp; <%= link_to "Back to All Posts", root_path %></p> &nbsp;
 	<% end %>
-
-
 
 			<%-# if can? :update, @user -%>
 				 <%#= link_to "Admin", admin_root_path -%>
