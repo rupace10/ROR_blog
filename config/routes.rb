@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
   get '/about', to: 'pages#about' #this makes the file path '/about' instead of 'pages/about'
 
-  get 'pages/contact'
+  # get 'pages/contact'
+  get '/contact', to: 'pages#contact'
 
   get 'welcome/index'
 

@@ -1,16 +1,16 @@
 <div id="post_content">
 	<h1 class="title"><%= @article.title %></h1>
-	<p class="date">
-		Submitted <%= time_ago_in_words(@article.created_at) %> Ago
+	<p class="article-time-info">
+		Submitted <%= time_ago_in_words(@article.created_at) %> Ago &nbsp;
+	</p>
+	<p class= "edit-delete">
+		<% if user_signed_in? %>
+			<%= link_to 'Edit', edit_article_path(@article) %> |
 
-			<% if user_signed_in? %>
-				<%= link_to 'Edit', edit_article_path(@article) %> |
-
-	    		<%= link_to 'Delete', article_path(@article),
-	                              method: :delete,
-	                              data: { confirm: 'Are you sure?' } %>
-	        <% end %>
-
+    		<%= link_to 'Delete', article_path(@article),
+                              method: :delete,
+                              data: { confirm: 'Are you sure?' } %>
+        <% end %>
 	</p>
 	<p class="body"><%= @article.text %></p>
 

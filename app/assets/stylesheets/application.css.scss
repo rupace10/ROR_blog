@@ -15,6 +15,8 @@
  */
 
 @import 'normalize';
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 html, body {
 	font-family: 'sans-serif', sans-serif;
@@ -65,10 +67,10 @@ a {
 		transition: border 0.3s linear 0s;
 	}
 	#cpBtn:hover{
-		border: #06F 1px solid;
+		border: #5eb8be 1px solid;
 	}
 	#cpBtn:hover div{
-		background: #06F;
+		background: #5eb8be;
 	}
 	#cpBtn > div{
 		width: 20px;
@@ -84,18 +86,27 @@ a {
 		top: 60px;
 		width: 260px;
 		height: 0px;
-		background: #333;
+		background: #5eb8be;
 		transition: right 0.3s linear 0s;
+		.siderbar-nav{
+			ul{
+				li a{
+					color: #333;
+				}
+			}
+		}
 	}
 	p {
 		display: inline;
 	}
-	.ap-text{
-		text-align: center;
-	}
 	a {
 		color: #9eafba;
 		text-decoration: none;
+	}
+	.log-in-as{
+		font-size: 1.2em;
+		margin-right: 20px;
+		float: right;
 	}
 	.buttons {
 		float: left;
@@ -138,6 +149,14 @@ a {
 			font-size: 2.5em;
 			margin-bottom: 0;
 		}
+		.article-time-info{
+			font-style: italic;
+			display: inline;
+		}
+		.edit-delete{
+			font-size: 1.3em;
+			display: inline;
+		}
 		.body {
 			font-size: 1.1em;
 			line-height: 1.75;
@@ -171,9 +190,9 @@ a {
 						font-size: 0.7em;
 						text-transform: uppercase;
 					}
-					.comment_body {
-						font-size: 1.2em;
-						margin: 0.2em 0 0 0;
+					.comment-body {
+						font-size: 1.25em;
+						margin: 0.5em 0 0 0;
 					}
 					.comment_time {
 						margin-top: 1.2em;

@@ -21,7 +21,8 @@
 			<li><%= link_to "Blog", root_path %></li>
 			<li><%= link_to "New Post", new_article_path %></li>
 			<li><%= link_to "About", about_path %></li>
-			<li class="sidebar-brand">Social</li>
+			<li><%= link_to "Contact", contact_path %></li>
+			<li class="sidebar-brand">Connect to me with</li>
 			<li><a href="https://twitter.com/rupace10" target="_blank">Twitter</a></li>
 			<li><a href= '#' >Instagram</a></li>
 			<li><a href="https://github.com/rupace10" target="_blank">Github</a></li>
@@ -41,7 +42,7 @@
 	<% elsif current_page?(about_path)%>
 		<p>About</p>
 	<% else %>
-	<%= link_to "Back to All Posts", root_path, class: "icon-arrow-left" %>
+		<p><%= icon('arrow-left') %> &nbsp; <%= link_to "Back to All Posts", root_path %></p> &nbsp;
 	<% end %>
 
 
@@ -51,7 +52,7 @@
 			<%-# end -%>
 
 	<% if user_signed_in? %>
-	Logged in as <%= current_user.email %>.
+	<span class="log-in-as" > Logged in as: <%= current_user.email %>. </span>
 		<div class="buttons">
 			<%= link_to "Log Out", destroy_user_session_path, :method => :delete, class: "button" %>
 			&nbsp;
@@ -63,7 +64,9 @@
 	<% flash.each do|name, msg| %>
 	<%= content_tag(:div, msg, class: "alert") %>
 	<% end %>
+
 <%= yield %>
+
 </div>
 	<%= javascript_include_tag :defaults %>
 	<p><%= notice %></p>
