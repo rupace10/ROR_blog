@@ -18,6 +18,10 @@
 	</div>
 	<div id="cp">
 		<ul class="sidebar-nav">
+			<li><%= link_to root_path do %>
+					<%= image_tag "logo.png", class: "img-flat" %>
+				<% end %>
+			</li>
 			<li><%= link_to "Blog", root_path %></li>
 			<li><%= link_to "New Post", new_article_path %></li>
 			<li><%= link_to "About", about_path %></li>
@@ -29,15 +33,14 @@
 			<li><a href= 'https://google.com/+RupeshMaharjan1' target="_blank" ><%= image_tag "gplus.png" %></a></li>
 			<li><a href="https://linkedin.com/rupace10" target="_blank"><%= image_tag "l.png" %></a></li>
 			<li><a href="https://github.com/rupace10" target="_blank"><%= image_tag "github.png" %></a></li>
+			<li><% if !user_signed_in? %>
+					<% if current_page?(root_path)%>
+						<%= link_to "Login", new_user_session_path, class: "log-in" %>
+					<% end %>
+				<%#= link_to "Sign up", new_user_registration_path, class: "button" -%>
+				<% end %>
+			</a></li>
 		</ul>
-	</div>
-	<div class="buttons">
-	<% if !user_signed_in? %>
-		<% if current_page?(root_path)%>
-		<%= link_to "Login", new_user_session_path, class: "button" %>
-		<% end %>
-		<%#= link_to "Sign up", new_user_registration_path, class: "button" -%>
-	<% end %>
 	</div>
 
 	<% if current_page?(root_path)%>
