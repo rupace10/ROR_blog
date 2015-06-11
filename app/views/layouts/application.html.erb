@@ -33,13 +33,14 @@
 			<li><a href= 'https://google.com/+RupeshMaharjan1' target="_blank" ><%= image_tag "gplus.png" %></a></li>
 			<li><a href="https://linkedin.com/rupace10" target="_blank"><%= image_tag "l.png" %></a></li>
 			<li><a href="https://github.com/rupace10" target="_blank"><%= image_tag "github.png" %></a></li>
-			<li><% if !user_signed_in? %>
-					<% if current_page?(root_path)%>
-						<%= link_to "Login", new_user_session_path, class: "log-in" %>
-					<% end %>
+			<li>
+			<p class= "log-in">
+			<% if !user_signed_in? %>
+					<%= link_to "Login", new_user_session_path %>
 				<%#= link_to "Sign up", new_user_registration_path, class: "button" -%>
-				<% end %>
-			</a></li>
+			<% end %>
+			</p>
+			</li>
 		</ul>
 	</div>
 
