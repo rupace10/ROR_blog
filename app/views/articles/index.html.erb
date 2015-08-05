@@ -4,4 +4,4 @@
 	    <p class="date"> <%= article.created_at.strftime("%B, %d, %Y") %></p>
     </div>
 <% end %>
-<%= will_paginate @articles %>
+<%= will_paginate @articles, class: "apple_pagination" %>
